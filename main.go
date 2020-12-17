@@ -28,17 +28,17 @@ var (
 )
 
 func usage() string {
-	return `Two factor authenticator agent.
+	return `Two factor authenticator for your command line.
 
 Usage:
-  two-factor-authenticator add <name> [--digits=<digits>] [--interval=<seconds>] [--verbose]
-  two-factor-authenticator dump [<name>] [--verbose]
-  two-factor-authenticator generate <name> [-c|--clip] [--verbose]
-  two-factor-authenticator list [--verbose]
-  two-factor-authenticator remove <name> [--verbose]
-  two-factor-authenticator rename <old-name> <new-name>
-  two-factor-authenticator -h | --help
-  two-factor-authenticator --version
+  2ami add <name> [--digits=<digits>] [--interval=<seconds>] [--verbose]
+  2ami dump [<name>] [--verbose]
+  2ami generate <name> [-c|--clip] [--verbose]
+  2ami list [--verbose]
+  2ami remove <name> [--verbose]
+  2ami rename <old-name> <new-name>
+  2ami -h | --help
+  2ami --version
 
 Commands:
   add       Add a new key.
@@ -351,10 +351,10 @@ func getDatabaseConfigurations() (databaseLocation, databaseFilename string) {
 	// TODO: use XDG_CONFIG_HOME
 	switch runtime.GOOS {
 	case "linux":
-		databaseLocation = path.Join(userHome, ".config", "two-factor-authenticator")
+		databaseLocation = path.Join(userHome, ".config", "2ami")
 		databaseFilename = "2fa.db"
 	case "darwin":
-		databaseLocation = path.Join(userHome, ".config", "two-factor-authenticator")
+		databaseLocation = path.Join(userHome, ".config", "2ami")
 		databaseFilename = "2fa.db"
 	}
 
